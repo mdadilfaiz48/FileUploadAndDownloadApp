@@ -48,6 +48,14 @@ public class StudentRegistrationServlet extends HttpServlet {
 			String photo = sphoto.getSubmittedFileName();
 
 			String uploadPath = "C:/adil/";
+			// Create full path
+			String resumeFullPath =
+			        uploadPath + resume;
+			System.out.println(resumeFullPath);
+
+			String photoFullPath =
+			        uploadPath + photo;
+			System.out.println(resumeFullPath);
 
 			// Photo upload
 			InputStream photoInputStream = sphoto.getInputStream();
@@ -80,8 +88,8 @@ public class StudentRegistrationServlet extends HttpServlet {
 			   ps.setInt(1, id);
 			   ps.setString(2, sname);
 			   ps.setString(3, address);
-			   ps.setString(4,resume);
-			   ps.setString(5, photo);
+			   ps.setString(4,resumeFullPath);
+			   ps.setString(5, photoFullPath);
 			  
 			   int count = ps.executeUpdate();
 			  
