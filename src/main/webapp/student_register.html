@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <h1 style="color:blue; text-align:center">FileUploading and DownLoading Example App</h1>
+  <form action="uploadurl" method="post"  enctype="multipart/form-data">
+       
+        <table align="center" bgcolor="cyan">
+         <tr>
+                   <td>Student Id :</td>
+                   <td><input type="text" name="sid"></td>
+            </tr>
+            <tr>
+                   <td>Student Name :</td>
+                   <td><input type="text" name="sname"></td>
+            </tr>
+             <tr>
+                   <td>Student address :</td>
+                   <td><input type="text" name="saddr"></td>
+            </tr>
+             <tr>
+                   <td>Student Resume :</td>
+                   <td><input type="file" name="resume"></td>
+            </tr>
+             <tr>
+                   <td>Student photo :</td>
+                   <td><input type="file" name="photo"></td>
+            </tr>
+            
+             <tr>
+                   <td><input type="submit" value="register"></td>
+                   <td><input type="reset" value="cancel"></td>
+            </tr>
+        </table>
+  </form>
+</body>
+</html>

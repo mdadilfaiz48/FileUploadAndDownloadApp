@@ -1,0 +1,21 @@
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# Build folder
+build/
+bin/
+target/
+
+# Compiled Java files
+*.class
+
+# Ignore DB file
+#DBScript.txt
+
+# Ignore jar file (optional)
+src/main/webapp/WEB-INF/lib/*.jar
+
+# Server files
+Servers/

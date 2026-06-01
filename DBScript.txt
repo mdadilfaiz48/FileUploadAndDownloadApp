@@ -1,0 +1,1 @@
+create table student_details(id int PRIMARY key,sname varchar(40),saddr varchar(40),resume varchar(200),photo varchar(200));
