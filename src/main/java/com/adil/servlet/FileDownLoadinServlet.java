@@ -24,6 +24,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/downloadurl")
 public class FileDownLoadinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	// SQL query to get file name from database table based on id
 	private static final String GET_PHOTO_FILE_NAME_QUERY = "select photo_fileName from student_details where id=?";
 	private static final String GET_RESUME_FILE_NAME_QUERY = "select resume_fileName from student_details where id=?";
 
