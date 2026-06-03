@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.util.Vector;
+
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -22,6 +22,8 @@ import jakarta.servlet.http.Part;
 @WebServlet("/uploadurl")
 @MultipartConfig
 public class StudentRegistrationServlet extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
 	private static final String INSER_QUERY = "Insert into student_details values(?,?,?,?,?)";
 
 	@Override
