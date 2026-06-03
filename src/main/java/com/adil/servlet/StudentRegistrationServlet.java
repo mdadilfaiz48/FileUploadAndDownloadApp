@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.util.Vector;
+
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -22,6 +22,7 @@ import jakarta.servlet.http.Part;
 @WebServlet("/uploadurl")
 @MultipartConfig
 public class StudentRegistrationServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private static final String INSER_QUERY = "Insert into student_details values(?,?,?,?,?)";
 
 	@Override
@@ -32,9 +33,9 @@ public class StudentRegistrationServlet extends HttpServlet {
 
 		// read special request object
 		try {
-             
+
 			int id = Integer.parseInt(request.getParameter("sid"));
-			
+
 			String sname = request.getParameter("sname");
 
 			String address = request.getParameter("saddr");
@@ -48,14 +49,9 @@ public class StudentRegistrationServlet extends HttpServlet {
 			String photo = sphoto.getSubmittedFileName();
 
 			String uploadPath = "C:/adil/";
-			// Create full path
-			String resumeFullPath =
-			        uploadPath + resume;
-			System.out.println(resumeFullPath);
-
-			String photoFullPath =
-			        uploadPath + photo;
-			System.out.println(resumeFullPath);
+			// Create full path for resume and photo
+			String resumeFullPath = uploadPath + resume;
+			String photoFullPath = uploadPath + photo;
 
 			// Photo upload
 			InputStream photoInputStream = sphoto.getInputStream();
@@ -72,37 +68,35 @@ public class StudentRegistrationServlet extends HttpServlet {
 			Files.copy(resumeInputStream, resumePath, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
 
 			out.println("<h1>File uploaded successfully</h1>");
-			
-			// get history
-		
-			// write jdbc code to save form data and file data in table.
 
-			// Load jdbc driver class.
+			// write JDBC code to save form data and file data in table.
+
+			// Load JDBC driver class.
 			Class.forName("com.mysql.cj.jdbc.Driver");
 
-			// stablish the connection
+			// Establish the connection
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "password");
-			// create Prepared statament object
-			  PreparedStatement ps = con.prepareStatement(INSER_QUERY);
-			  // set values in ps
-			   ps.setInt(1, id);
-			   ps.setString(2, sname);
-			   ps.setString(3, address);
-			   ps.setString(4,resumeFullPath);
-			   ps.setString(5, photoFullPath);
-			  
-			   int count = ps.executeUpdate();
-			  
-			   if(count>0) {
-				   
-				   out.println("<h1>Student details insert successfully</h1>");
-			   }else {
-				   
-				   out.println("<h1>Student details not inserted</h1>");
-			   }
-			   //close resources
-			   ps.close();
-			   con.close();
+			// create Prepared statement object
+			PreparedStatement ps = con.prepareStatement(INSER_QUERY);
+			// set values in pas
+			ps.setInt(1, id);
+			ps.setString(2, sname);
+			ps.setString(3, address);
+			ps.setString(4, resumeFullPath);
+			ps.setString(5, photoFullPath);
+
+			int count = ps.executeUpdate();
+
+			if (count > 0) {
+
+				out.println("<h1>Student details insert successfully</h1>");
+			} else {
+
+				out.println("<h1>Student details not inserted</h1>");
+			}
+			// close resources
+			ps.close();
+			con.close();
 
 		} catch (Exception e) {
 
