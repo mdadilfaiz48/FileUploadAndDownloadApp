@@ -1,0 +1,6 @@
+.classpath
+ .gitignore.txt
+  .project
+ .settings/*
+  DBScript.txt
+  build/

@@ -16,6 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/reporturl")
 public class StudentReportServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private static final String GET_ALL_STUDENT = "select * from student_details";
 
 	@Override
